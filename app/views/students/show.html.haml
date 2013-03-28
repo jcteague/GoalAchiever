@@ -1,0 +1,23 @@
+%h1 
+	= @student.name
+.student-objectives
+	%h3 Objectives
+	%table#student-objectives-table
+		%thead
+			%tr
+				%th
+					Objectives
+		%tbody
+			- @student.objectives.each do |o|
+				%tr
+					%td 
+						= o.name
+
+.objective-form
+	%h3 Add Objective
+	= simple_form_for [@student, Objective.new],  url: student_objectives_path(@student), remote:true do |f|
+		= f.input :name
+		= f.input :description
+		= f.input :frequency, collection:Objective.frequencies
+		= f.input :points
+		= f.button :submit

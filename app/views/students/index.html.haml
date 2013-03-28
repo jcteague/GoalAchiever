@@ -1,0 +1,13 @@
+= link_to "Create Student", new_student_path
+
+%table.table
+	%thead
+		%th
+			student
+		%th
+	%tbody
+		- @students.each do |s|
+			%tr
+				%td
+					= link_to s.name, student_path(s.id)
+

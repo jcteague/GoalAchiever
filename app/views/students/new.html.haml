@@ -1,0 +1,5 @@
+%h1 Create New Student
+.student-form
+	= simple_form_for @student do |f|
+		= f.input :name
+		= f.button :submit
